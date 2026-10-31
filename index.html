@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>โจ๊กนายตั้ม</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>🍲 โจ๊กนายตั้ม 🍲</header>
+<main>
+<div class="dots" id="dots"></div>
+
+<section class="card step on" id="s1">
+<svg class="cat" viewBox="0 0 160 150" aria-hidden="true"></svg>
+<h2>ยินดีต้อนรับค่ะ/ครับ 🐱</h2>
+<p>กรุณาพิมพ์ชื่อของคุณ</p>
+<input type="text" id="name" placeholder="ชื่อ เช่น คุณสมชาย" autocomplete="name">
+<div class="err" id="e1"></div>
+<div class="nav"><button class="btn" onclick="next(1)">ต่อไป ➜</button></div>
+</section>
+
+<section class="card step" id="s2">
+<h2>เลือกโจ๊ก 🥣</h2>
+<div class="card" style="box-shadow:none">
+<div class="price">โจ๊กผู้ใหญ่ 30 บาท</div>
+<div class="desc">ใส่ขิง ใส่ต้นหอม ใส่ไข่ (+5) ใส่หมูเด้ง</div>
+<div class="qty"><button onclick="q('a',-1)" aria-label="ลด">−</button><output id="qa">0</output><button onclick="q('a',1)" aria-label="เพิ่ม">+</button><span>ถุง</span></div>
+</div>
+<div class="card" style="box-shadow:none">
+<div class="price">โจ๊กเด็ก 25 บาท</div>
+<div class="desc">ใส่ไข่ (+5) ใส่หมูเด้ง</div>
+<div class="qty"><button onclick="q('k',-1)" aria-label="ลด">−</button><output id="qk">0</output><button onclick="q('k',1)" aria-label="เพิ่ม">+</button><span>ถุง</span></div>
+</div>
+<div class="err" id="e2"></div>
+<div class="nav"><button class="btn back" onclick="go(1)">⬅ กลับ</button><button class="btn" onclick="next(2)">ต่อไป ➜</button></div>
+</section>
+
+<section class="card step" id="s3">
+<h2>โจ๊กผู้ใหญ่ 👴</h2>
+<p>ไม่ใส่อะไรบ้าง? <span class="hint">(กดเลือกได้หลายอย่าง · ถ้าสั่งหลายถุง เลือกสำหรับถุงที่ไม่ใส่ แล้วถ้าถุงอื่นไม่เหมือนกัน ให้พิมพ์บอกในหน้าถัดไป)</span></p>
+<div id="oa"></div>
+<div class="err" id="e3"></div>
+<div class="nav"><button class="btn back" onclick="go(2)">⬅ กลับ</button><button class="btn" onclick="next(3)">ต่อไป ➜</button></div>
+</section>
+
+<section class="card step" id="s4">
+<h2>โจ๊กเด็ก 🧒</h2>
+<p>ไม่ใส่อะไรบ้าง? <span class="hint">(กดเลือกได้หลายอย่าง)</span></p>
+<div id="ok"></div>
+<div class="err" id="e4"></div>
+<div class="nav"><button class="btn back" onclick="go(3)">⬅ กลับ</button><button class="btn" onclick="next(4)">ต่อไป ➜</button></div>
+</section>
+
+<section class="card step" id="s5">
+<h2>รายละเอียดเพิ่มเติม 📝</h2>
+<p class="hint">ถ้าสั่งหลายถุงแต่ไม่ใส่อะไรไม่เหมือนกัน พิมพ์บอกได้ที่นี่ค่ะ (ไม่มีก็ข้ามได้)</p>
+<textarea id="note" placeholder="เช่น ถุงที่ 2 ไม่ใส่ขิง"></textarea>
+<h2 style="margin-top:16px">สรุปออเดอร์</h2>
+<div class="sum" id="sum"></div>
+<div class="err" id="e5"></div>
+<div class="nav"><button class="btn back" onclick="go(4)">⬅ กลับ</button><button class="btn send" id="send" onclick="submitOrder()">✅ ยืนยันออเดอร์</button></div>
+</section>
+
+<section class="card step" id="s6" style="text-align:center">
+<svg class="cat" viewBox="0 0 160 150" aria-hidden="true"></svg>
+<h2>ส่งออเดอร์เรียบร้อยแล้ว! 🎉</h2>
+<p>ขอบคุณที่อุดหนุนโจ๊กนายตั้มนะคะ/ครับ</p>
+<div class="nav"><button class="btn" onclick="location.reload()">สั่งใหม่อีกครั้ง</button></div>
+</section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
